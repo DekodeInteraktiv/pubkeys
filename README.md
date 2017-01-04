@@ -11,11 +11,13 @@
 ### Generate new checksum files
 
 `shasum -a 256 keys/*.pub > SHA256SUMS`
+
 `shasum -a 256 authorized_keys > authorized_keys.sha256`
 
 ### Sign the checksum files
 
 `gpg --output SHA256SUMS.gpg --detach-sig SHA256SUMS`
+
 `gpg --output authorized_keys.sha256.gpg --detach-sig authorized_keys.sha256`
 
 
@@ -24,6 +26,7 @@
 ### Check signature of checksum files
 
 `gpg --verify SHA256SUMS.gpg SHA256SUMS`
+
 `gpg --verify authorized_keys.sha256.gpg authorized_keys.sha256`
 
 ### Verify checksum of all pubkeys
