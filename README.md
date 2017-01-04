@@ -37,3 +37,28 @@
 
 `shasum -a 256 -c authorized_keys.sha256`
 
+## Downloading the `authorized_keys`
+
+Do this in a temp dir:
+
+`cd /tmp`
+
+### Download the files
+
+`curl -s -O https://raw.githubusercontent.com/DekodeInteraktiv/pubkeys/master/authorized_keys`
+
+`curl -s -O https://raw.githubusercontent.com/DekodeInteraktiv/pubkeys/master/authorized_keys.sha256`
+
+`curl -s -O https://raw.githubusercontent.com/DekodeInteraktiv/pubkeys/master/authorized_keys.sha256.gpg`
+
+### Verify the signature
+
+`gpg --verify authorized_keys.sha256.gpg authorized_keys.sha256`
+
+### Verify the checksum
+
+`shasum -a 256 -c authorized_keys.sha256`
+
+### Append the pubkeys
+
+`cat authorized_keys >> ~/.ssh/authorized_keys`
